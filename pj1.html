@@ -1,23 +1,122 @@
-<html>
-    <head>
-        <title>pj1</title>
-    </head>
+<!DOCTYPE html>
+<html ng-app="HomeApp">
+<head>
+<meta charset="UTF-8">
+<title>home
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="pp.js"></script>
+</title>
 
-    <body>
-        <form id="form1" name="form1" method="post" action="add_pj1.php">
-ชื่อ 
-<input type="text" name="name" id="name" />
-<br />
-<br />
-นามสกุล 
-<input type="text" name="lastname" id="lastname" />
-<br />
-<br />
-ที่อยู่ 
-<textarea name="address" id="address" cols="45" rows="4"></textarea>
-<br />
-<br />
-</form>
+<!-- script modal popup  -->
 
-    </body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="js/test.js"></script> -->
+
+<!-- css -->
+<style type="text/css">
+/*modal css*/
+
+/* fade ออกมาตรงกลางหน้าจอ
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+}
+*/
+
+/* fade left ออกมาจากทางซ้ายของหน้าจอ */
+.modal.fade:not(.in) .modal-dialog {
+	-webkit-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+}
+</style>
+
+<button type="button" class="btn btn-default" onclick="show()">
+        <span class="glyphicon glyphicon-plus-sign">ADD</span>
+    </button>
+
+<script type="text/javascript">
+/*
+    //onload show modal script ชุดนี้โหลดมาตรงๆ ไม่มีหน่วงเวลานะ
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+    */
+//เรีกยก modal ออกมาแสดง	
+var show = function(){
+    $('#myModal').modal('show');
+};
+</script>
+</head>
+<body ng-controller="testCtrl as ctrl">
+    <br/>
+    
+    
+     <script>testCtrl.set(yourSharedData);</script>
+
+    
+<!-- modal -->
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-md"> <!-- กำหนดขนาดของ modal เพิ่มได้นะครับ เช่น xs, sm, md, lg -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        
+      </div>
+      <div class="modal-body">
+         
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Enter your..</div>
+                    <div class="panel-body">
+
+                        
+
+                        <form method="POST" action="pp.js">
+                        <div class ="input-group">
+                            <span class="input-group-addon Firstname">Firstname</span>
+                            <input type="text" class="form-control" ng-model="ctrl.name" placeholder="Firstname"/>
+
+                        </div>
+                        <br/>
+                        <div class ="input-group">
+                            <span class="input-group-addon">Surname</span>
+                            <input type="text" class="form-control" ng-model="ctrl.lastname" placeholder="Surname" />
+                        </div>
+                        <br/>
+                        <div class ="input-group">
+                            <span class="input-group-addon glyphicon glyphicon-home"></span>
+                             <textarea class="form-control" ng-model="ctrl.address" placeholder="Address"  row="3" ></textarea>
+                        </div>
+                        </form>
+
+
+
+                    </div>
+                </div>
+        </div>
+        <br>
+
+        <div>
+        <button type="button" class="btn btn-default" onclick="//" data-dismiss="modal" >
+            cancel
+        </button>
+        
+       <button ng-click="myFunc(ctrl.name,ctrl.lastname,ctrl.address)">     
+            <a href="/index.html"><span class=""></span>save</a>
+
+        </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
 </html>
