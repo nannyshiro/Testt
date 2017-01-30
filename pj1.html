@@ -55,7 +55,7 @@ var show = function(){
     <br/>
     
     
-     <script>testCtrl.set(yourSharedData);</script>
+     <script>//ctrl.set(yourSharedData);</script>
 
     
 <!-- modal -->
@@ -79,18 +79,18 @@ var show = function(){
                         <form method="POST" action="pp.js">
                         <div class ="input-group">
                             <span class="input-group-addon Firstname">Firstname</span>
-                            <input type="text" class="form-control" ng-model="ctrl.name" placeholder="Firstname"/>
+                            <input type="text" class="form-control" id="naame" placeholder="Firstname"/>
 
                         </div>
                         <br/>
                         <div class ="input-group">
                             <span class="input-group-addon">Surname</span>
-                            <input type="text" class="form-control" ng-model="ctrl.lastname" placeholder="Surname" />
+                            <input type="text" class="form-control" id="lastname" placeholder="Surname" />
                         </div>
                         <br/>
                         <div class ="input-group">
                             <span class="input-group-addon glyphicon glyphicon-home"></span>
-                             <textarea class="form-control" ng-model="ctrl.address" placeholder="Address"  row="3" ></textarea>
+                             <textarea class="form-control" id="address" placeholder="Address"  row="3" ></textarea>
                         </div>
                         </form>
 
@@ -106,10 +106,9 @@ var show = function(){
             cancel
         </button>
         
-       <button ng-click="myFunc(ctrl.name,ctrl.lastname,ctrl.address)">     
-            <a href="/index.html"><span class=""></span>save</a>
-
-        </button>
+                    <button type="button" class="btn btn-default" onclick="add(naame.value,lastname.value,address.value)" data-dismiss="modal"> <!--data-dismiss กดแล้วทำให้หายไป-->
+                        <span  class="plus">save</span>
+                    </button>
 
         </div>
       </div>
@@ -117,6 +116,27 @@ var show = function(){
   </div>
 </div>
 
+<b id="name1"></b>&nbsp
+<b id="last"></b>&nbsp
+<b id="add"></b>
+
+
+<script>
+            var list=[];
+            var long=list.length;
+            function add (xz,xx,xc){
+                //list.splice(long,0,xs);
+                list=xz;  
+                list1=xx;
+                list2=xc;
+                document.getElementById("name1").innerHTML = list;
+                document.getElementById("last").innerHTML = list1;
+                document.getElementById("add").innerHTML = list2;
+         console.log(list);       
+            }
+console.log("test ");
+
+</script>
 
 </body>
 </html>
